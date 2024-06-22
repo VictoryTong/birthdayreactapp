@@ -16,7 +16,12 @@ export const Home = () => {
 };
 
 function Logo() {
-  return <h1>🎂Happy Birthday🎉👨</h1>;
+  return (
+  <div>
+      <h1>🎂Happy Birthday🎉👨</h1>
+      <h1>Parth</h1>
+  </div>
+	);
 }
 function Form({ onAddItems }) {
   const [description, setDescription] = useState("");
@@ -51,7 +56,7 @@ function Form({ onAddItems }) {
 }
 function PackingList({ items, setItems }) {
   function handleDeleteItem(itemId) {
-    const index = items.findIndex((item) => item.id == itemId);
+    const index = items.findIndex((item) => item.id === itemId);
     if (index !== -1) {
       const newarray = [...items.slice(0, index), ...items.slice(index + 1)];
       setItems(newarray);
@@ -79,7 +84,14 @@ function Stats() {
 function Item({ item, onDeleteItem }) {
   return (
     <li>
-      <span style={item.packed ? { textDecoration: "line-through" } : {}}>
+      <span style={{
+          textDecoration: item.packed ? "line-through" : "none",
+          whiteSpace: "normal",
+          textAlign: "left",
+          display: "inline-block",
+          wordBreak: "break-word",
+        }}
+      >
         {item.description}
       </span>
       <button onClick={() => onDeleteItem(item.id)}>❌</button>
