@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { TypedComponent } from "./typedcomponent";
 import { BirthdayImage } from "./cake";
+import { MessageList } from "./fadingmessage";
 
 export const Start = () => {
   const [showLoader, setShowLoader] = useState(true);
@@ -35,9 +36,7 @@ export const Start = () => {
               </div>
               <div class="col-12 text-center">
                 <div class="type-wrap">
-                  <div id="typed-strings" class="typing">
-                    <TypedComponent />
-                  </div>
+                  <MessageList />
                 </div>
               </div>
               <BirthdayImage />
