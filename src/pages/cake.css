@@ -1,0 +1,61 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  text-align: center;
+}
+
+/* #girl-hand{
+    animation: hand 10s infinite linear;
+    transform-origin: center;
+    transform-box: fill-box;
+} */
+
+#balloons {
+  animation: balloon 20s linear infinite;
+}
+
+#flames {
+  animation: flame 1.5s linear infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+/* 
+@keyframes hand{
+    0%{transform: rotate(5deg);}
+    50%{transform: rotate(-5deg)}
+    100%{transform: rotate(5deg);}
+} */
+
+@keyframes balloon {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-1080px);
+  }
+}
+
+@keyframes flame {
+  0% {
+    transform: rotate(-1deg);
+  }
+  20% {
+    transform: rotate(3deg) scaleY(0.9);
+  }
+  40% {
+    transform: rotate(-1deg);
+  }
+  60% {
+    transform: rotate(2deg);
+  }
+  80% {
+    transform: rotate(-1deg) scaleY(1);
+  }
+  100% {
+    transform: rotate(2deg);
+  }
+}
