@@ -1,13 +1,18 @@
 import { useState } from "react";
-import { TypedComponent } from "./typedcomponent";
 import { BirthdayImage } from "./cake";
 import { MessageList } from "./fadingmessage";
+import music from "./music.mp3";
+import Sound from "react-sound";
+import { Link } from "react-router-dom";
 
 export const Start = () => {
   const [showLoader, setShowLoader] = useState(true);
   function handlePlayClick() {
     setShowLoader(false);
   }
+  const handleError = (e) => {
+    console.error("Sound playback error:", e);
+  };
   return (
     <div>
       <div class="container">
@@ -24,9 +29,12 @@ export const Start = () => {
       </div>
       {!showLoader && (
         <div class="main">
-          <audio class="song" controls="controls" loop="">
-            <source src="./music.mp3" />
-          </audio>
+          <Sound
+            url={music}
+            playStatus={Sound.status.PLAYING}
+            loop={true}
+            onError={handleError}
+          ></Sound>
           <div class="container pt-5">
             <div class="row">
               <div class="col-12 col-xl-6 mx-auto">
@@ -44,6 +52,9 @@ export const Start = () => {
               </div>
               <BirthdayImage />
             </div>
+          </div>
+          <div>
+            <Link to="/">Check your messages here</Link>
           </div>
         </div>
       )}
