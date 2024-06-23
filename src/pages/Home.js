@@ -17,11 +17,11 @@ export const Home = () => {
 
 function Logo() {
   return (
-  <div>
+    <div>
       <h1>🎂Happy Birthday🎉👨</h1>
       <h1>Parth</h1>
-  </div>
-	);
+    </div>
+  );
 }
 function Form({ onAddItems }) {
   const [description, setDescription] = useState("");
@@ -42,7 +42,7 @@ function Form({ onAddItems }) {
         <h3>Please add your birthday message along with your name</h3>
       </div>
       <br />
-      <div>
+      <div class="messagebox">
         <input
           type="text"
           placeholder="Message..."
@@ -84,7 +84,8 @@ function Stats() {
 function Item({ item, onDeleteItem }) {
   return (
     <li>
-      <span style={{
+      <span
+        style={{
           textDecoration: item.packed ? "line-through" : "none",
           whiteSpace: "normal",
           textAlign: "left",

@@ -24,6 +24,9 @@ export const Start = () => {
       </div>
       {!showLoader && (
         <div class="main">
+          <audio class="song" controls="controls" loop="">
+            <source src="./music.mp3" />
+          </audio>
           <div class="container pt-5">
             <div class="row">
               <div class="col-12 col-xl-6 mx-auto">

@@ -107,6 +107,39 @@ img {
   width: 100%;
 }
 
+.fade-enter {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  left: 0;
+}
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 1s ease-in;
+}
+.fade-exit {
+  opacity: 1;
+  position: absolute;
+  width: 100%;
+  left: 0;
+}
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 1s ease-out;
+}
+
+.message-container {
+  position: relative;
+  height: 2em; /* Set a fixed height based on your message height */
+  overflow: hidden; /* Hide overflow to prevent layout shifts */
+}
+
+.message {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+}
+
 @keyframes spin {
   0% {
     transform: rotateZ(0);
