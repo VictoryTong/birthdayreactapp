@@ -1,7 +1,11 @@
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 
 export const Home = () => {
   const [items, setItems] = useState([]);
+  const location = useLocation();
+  const state = location.state || {};
+  const showForm = state.showForm !== undefined ? state.showForm : true;
   function handleAddItems(item) {
     setItems((items) => [...items, item]);
   }
@@ -9,7 +13,7 @@ export const Home = () => {
   return (
     <div className="app">
       <Logo />
-      <Form onAddItems={handleAddItems} />
+      {showForm ? <Form onAddItems={handleAddItems} /> : <></>}
       <PackingList items={items} setItems={setItems} />
     </div>
   );
@@ -42,7 +46,7 @@ function Form({ onAddItems }) {
         <h3>Please add your birthday message along with your name</h3>
       </div>
       <br />
-      <div class="messagebox">
+      <div className="messagebox">
         <input
           type="text"
           placeholder="Message..."
@@ -71,13 +75,6 @@ function PackingList({ items, setItems }) {
         ))}
       </ul>
     </div>
-  );
-}
-function Stats() {
-  return (
-    <footer className="stats">
-      <em>👜You have X items on your list and you already packed X (X%)</em>
-    </footer>
   );
 }
 

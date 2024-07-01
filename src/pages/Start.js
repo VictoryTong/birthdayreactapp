@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 export const Start = () => {
   const [showLoader, setShowLoader] = useState(true);
+  const dataToPass = { showForm: false };
   function handlePlayClick() {
     setShowLoader(false);
   }
@@ -15,10 +16,10 @@ export const Start = () => {
   };
   return (
     <div>
-      <div class="container">
-        <div class="row">
+      <div className="container">
+        <div className="row">
           {showLoader && (
-            <div class="loader">
+            <div className="loader">
               <button id="play" onClick={handlePlayClick}>
                 Start
               </button>
@@ -28,25 +29,25 @@ export const Start = () => {
         <canvas id="confetti"></canvas>
       </div>
       {!showLoader && (
-        <div class="main">
+        <div className="main">
           <Sound
             url={music}
             playStatus={Sound.status.PLAYING}
             loop={true}
             onError={handleError}
           ></Sound>
-          <div class="container pt-5">
-            <div class="row">
-              <div class="col-12 col-xl-6 mx-auto">
+          <div className="container pt-5">
+            <div className="row">
+              <div className="col-12 col-xl-6 mx-auto">
                 <img src={require("../img/banner.png")} alt="" />
               </div>
-              <div class="col-12  text-center">
+              <div className="col-12  text-center">
                 <div id="name" class="area">
                   Parth
                 </div>
               </div>
-              <div class="col-12 text-center">
-                <div class="type-wrap">
+              <div className="col-12 text-center">
+                <div className="type-wrap">
                   <MessageList />
                 </div>
               </div>
@@ -54,7 +55,9 @@ export const Start = () => {
             </div>
           </div>
           <div>
-            <Link to="/">Check your messages here</Link>
+            <Link to="/" state={dataToPass}>
+              Check your messages here
+            </Link>
           </div>
         </div>
       )}

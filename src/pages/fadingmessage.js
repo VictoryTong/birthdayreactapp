@@ -41,7 +41,7 @@ export const MessageList = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentMessageIndex((prevIndex) => (prevIndex + 1) % messages.length);
-    }, 3000);
+    }, 5000);
     return () => clearInterval(interval);
   }, [currentMessageIndex]);
   return (
